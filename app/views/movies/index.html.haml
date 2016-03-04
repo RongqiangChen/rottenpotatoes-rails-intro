@@ -1,6 +1,6 @@
 -#  This file is app/views/movies/index.html.haml
 %h1 All Movies
-
+// check_box_tag(name, value = "1", checked = false, options = {})
 = form_tag movies_path, id: 'ratings_form', :method => :get do
   Include:
   - @all_ratings.each do |rating|
@@ -15,7 +15,7 @@
         %a#title_header{:href => movies_path({:order => 'title'})} Movie Title
       %th Rating
       %th{:class => ('hilite' if @order == 'release_date') }
-        %a#release_date_header{:href => "#{movies_path}?order=release_date"} Release Date
+        %a#release_date_header{:href => movies_path({:order => 'release_date'})} Release Date
       %th More Info
   %tbody
     - @movies.each do |movie|
